@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 style="margin-left: 300px;">Clients List</h2>
+  </div>
+  <div class="panel-body" >
+    <table class="table table-striped" style="width:100%;">
+      <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let client of clients | async">
+        <td>{{client.firstName}}</td>
+        <td>{{client.lastName}}</td>
+        <td>{{client.emailId}}</td>
+        <td><button (click)="deleteClient(client.id)" class="btn btn-outline-danger">Delete</button>
+          <button class='btn btn-outline-info' routerLink="update/{{client.id}}">Update</button>
+          <button class='btn btn-outline-success' routerLink="facture/{{client.id}}">View Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
